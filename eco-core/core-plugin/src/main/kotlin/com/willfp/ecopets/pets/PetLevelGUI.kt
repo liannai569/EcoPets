@@ -79,12 +79,19 @@ class PetLevelGUI(
             addComponent(1, 1, component)
 
             // Instead of the page changer, this will show up when on the first page
+            
+            //set paper's custommodeldata to use your icon
+            
+            val prevpage = ItemStack(Material.PAPER)
+            val prevcmd = prevpage.itemMeta;
+            prevcmd.setCustomModelData(plugin.configYml.getInt("level-gui.progression-slots.prev-page.material"))
+            prevpage.itemMeta = prevcmd;
             addComponent(
                 MenuLayer.LOWER,
                 plugin.configYml.getInt("level-gui.progression-slots.prev-page.location.row"),
                 plugin.configYml.getInt("level-gui.progression-slots.prev-page.location.column"),
                 slot(
-                    ItemStackBuilder(Items.lookup(plugin.configYml.getString("level-gui.progression-slots.prev-page.material")))
+                    ItemStackBuilder(prevpage)
                         .setDisplayName(plugin.configYml.getString("level-gui.progression-slots.prev-page.name"))
                         .build()
                 ) {
@@ -96,37 +103,46 @@ class PetLevelGUI(
                 plugin.configYml.getInt("level-gui.progression-slots.prev-page.location.row"),
                 plugin.configYml.getInt("level-gui.progression-slots.prev-page.location.column"),
                 PageChanger(
-                    ItemStackBuilder(Items.lookup(plugin.configYml.getString("level-gui.progression-slots.prev-page.material")))
+                    ItemStackBuilder(prevpage)
                         .setDisplayName(plugin.configYml.getString("level-gui.progression-slots.prev-page.name"))
                         .build(),
                     PageChanger.Direction.BACKWARDS
                 )
             )
 
+            //set paper's custommodeldata to use your icon
+            
+            val nextpage = ItemStack(Material.PAPER)
+            val nextcmd = nextpage.itemMeta;
+            nextcmd.setCustomModelData(plugin.configYml.getInt("level-gui.progression-slots.next-page.material"))
+            nextpage.itemMeta = nextcmd;
             addComponent(
                 plugin.configYml.getInt("level-gui.progression-slots.next-page.location.row"),
                 plugin.configYml.getInt("level-gui.progression-slots.next-page.location.column"),
                 PageChanger(
-                    ItemStackBuilder(Items.lookup(plugin.configYml.getString("level-gui.progression-slots.next-page.material")))
+                    ItemStackBuilder(nextpage)
                         .setDisplayName(plugin.configYml.getString("level-gui.progression-slots.next-page.name"))
                         .build(),
                     PageChanger.Direction.FORWARDS
                 )
             )
 
-            setSlot(
-                plugin.configYml.getInt("level-gui.progression-slots.close.location.row"),
-                plugin.configYml.getInt("level-gui.progression-slots.close.location.column"),
-                slot(
-                    ItemStackBuilder(Items.lookup(plugin.configYml.getString("level-gui.progression-slots.close.material")))
-                        .setDisplayName(plugin.configYml.getString("level-gui.progression-slots.close.name"))
-                        .build()
-                ) {
-                    onLeftClick { event, _ ->
-                        event.whoClicked.closeInventory()
-                    }
-                }
-            )
+
+            //Remove close sot
+            
+            // setSlot(
+            //     plugin.configYml.getInt("level-gui.progression-slots.close.location.row"),
+            //     plugin.configYml.getInt("level-gui.progression-slots.close.location.column"),
+            //     slot(
+            //         ItemStackBuilder(Items.lookup(plugin.configYml.getString("level-gui.progression-slots.close.material")))
+            //             .setDisplayName(plugin.configYml.getString("level-gui.progression-slots.close.name"))
+            //             .build()
+            //     ) {
+            //         onLeftClick { event, _ ->
+            //             event.whoClicked.closeInventory()
+            //         }
+            //     }
+            // )
 
             for (config in plugin.configYml.getSubsections("level-gui.custom-slots")) {
                 setSlot(
