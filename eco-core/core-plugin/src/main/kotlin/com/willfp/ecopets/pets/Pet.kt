@@ -114,6 +114,12 @@ class Pet(
     }
 
     val entityTexture = config.getString("entity-texture")
+    
+    //add 3 config to make the pets can use item and change it actions
+    val itemcmd = config.getInt("item-cmd")
+    val action1 = config.getBool("actions-up")
+    val action2 = config.getBool("actions-Q")
+    
     val modelEngineAnimation = config.getStringOrNull("modelengine-animation")
 
     private val levelXpRequirements = listOf(0) + config.getInts("level-xp-requirements")
