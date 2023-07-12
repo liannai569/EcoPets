@@ -67,9 +67,9 @@ effects:
     args:
       multiplier: "%level% * 0.02 + 1"
       
-#此处留空则代表使用PAPER为基础的模型物品宠物
+#if this option is empty , It will use Paper to display the pet
 entity-texture: ""
-#在此处输入PAPER的customModelData来给物品展示模型
+#set the PAPER's CustomModeData
 item-cmd: 1
 #use false or true to control pets actions
 actions-up: true
