@@ -46,6 +46,9 @@ internal fun emptyArmorStandAt(location: Location, pet: Pet): ArmorStand {
 
     for (slot in EquipmentSlot.values()) {
         stand.addEquipmentLock(slot, ArmorStand.LockType.ADDING_OR_CHANGING)
+        
+        //protect the armorstand, maybe player can take the item off
+        stand.addEquipmentLock(slot, ArmorStand.LockType.REMOVING_OR_CHANGING)
     }
 
     stand.isCustomNameVisible = true
