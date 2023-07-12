@@ -89,14 +89,16 @@ gui:
       pitch: 1
 
   prev-page:
-    item: arrow
+    # item of PAPER's CustomModelData
+    item: 1
     name: "&fPrevious Page"
     location:
       row: 6
       column: 4
 
   next-page:
-    item: arrow
+    # item of PAPER's CustomModelData
+    item: 1
     name: "&fNext Page"
     location:
       row: 6
