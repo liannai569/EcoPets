@@ -13,9 +13,20 @@ class SkullPetEntity(pet: Pet) : PetEntity(pet) {
         val skull: ItemStack = SkullBuilder()
             .setSkullTexture(pet.entityTexture)
             .build()
+            
+        //use item pets
+        val item = ItemStack(Material.PAPER);
+        val itemData = item.itemMeta;
+        itemData.setCustomModelData(pet.itemcmd);
+        item.itemMeta = itemData;
+
 
         @Suppress("UNNECESSARY_SAFE_CALL") // Can be null.
+        if (pet.entityTexture.isEmpty()) {
+            stand.equipment?.helmet = item
+        }else {
         stand.equipment?.helmet = skull
+        }
 
         return stand
     }
