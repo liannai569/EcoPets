@@ -50,13 +50,17 @@ class PetDisplay(
 
             val location = getLocation(player)
 
+            //action1 change config
+            if (pet.action1) {
             location.y += NumberUtils.fastSin(tick / (2 * PI) * 0.5) * 0.15
+            }
 
             if (location.world != null) {
                 stand.teleport(location)
             }
 
-            if (!pet.entityTexture.contains(":")) {
+            //actrion2
+            if (pet.action2){
                 stand.setRotation((20 * tick / (2 * PI)).toFloat(), 0f)
             }
         }
