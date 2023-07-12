@@ -160,19 +160,22 @@ level-gui:
     level-as-amount: true
 
     prev-page:
-      material: arrow
+      # item of PAPER's CustomModelData
+      material: 1
       name: "&fPrevious Page"
       location:
         row: 6
         column: 4
 
     next-page:
+       # item of PAPER's CustomModelData
       material: arrow
       name: "&fNext Page"
       location:
         row: 6
         column: 6
 
+    #This icon is removed in the plugin
     close:
       material: barrier
       name: "&cClose"
