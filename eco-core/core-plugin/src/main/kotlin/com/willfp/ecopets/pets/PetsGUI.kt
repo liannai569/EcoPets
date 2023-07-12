@@ -119,13 +119,20 @@ object PetsGUI {
 
             // I do this for backwards compatibility because with PageChanger if you don't have any more pages, the item will disappear and this would require an update of the config for all users
             // This is terrible imo, but everything for compatibility!
+
+            //set custommodeldata for paper in prev-page
+            val prevpage = ItemStack(Material.PAPER)
+            val prevcmd = prevpage.itemMeta;
+            prevcmd.setCustomModelData(plugin.configYml.getInt("gui.prev-page.item"))
+            prevpage.itemMeta = prevcmd;
+            
             setSlot(
                 plugin.configYml.getInt("gui.prev-page.location.row"),
                 plugin.configYml.getInt("gui.prev-page.location.column"),
                 slot(
-                    ItemStackBuilder(Items.lookup(plugin.configYml.getString("gui.prev-page.item")))
-                        .setDisplayName(plugin.configYml.getString("gui.prev-page.name"))
-                        .build()
+                    ItemStackBuilder(prevpage)
+                          .setDisplayName(plugin.configYml.getString("gui.prev-page.name"))
+                          .build()
                 )
                 {
                     onLeftClick { event, _, _ ->
@@ -143,11 +150,17 @@ object PetsGUI {
                 }
             )
 
+            //set custommodeldata for paper in next-page
+            
+            val nextpage = ItemStack(Material.PAPER)
+            val nextcmd = nextpage.itemMeta;
+            nextcmd.setCustomModelData(plugin.configYml.getInt("gui.next-page.item"))
+            nextpage.itemMeta = nextcmd;
             setSlot(
                 plugin.configYml.getInt("gui.next-page.location.row"),
                 plugin.configYml.getInt("gui.next-page.location.column"),
                 slot(
-                    ItemStackBuilder(Items.lookup(plugin.configYml.getString("gui.next-page.item")))
+                    ItemStackBuilder(nextpage)
                         .setDisplayName(plugin.configYml.getString("gui.next-page.name"))
                         .build()
                 )
