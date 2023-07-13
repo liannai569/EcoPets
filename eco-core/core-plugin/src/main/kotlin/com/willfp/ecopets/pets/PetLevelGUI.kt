@@ -17,6 +17,7 @@ import com.willfp.ecomponent.components.LevelComponent
 import com.willfp.ecomponent.components.LevelState
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
+import org.bukkit.Material
 
 
 class PetLevelGUI(
