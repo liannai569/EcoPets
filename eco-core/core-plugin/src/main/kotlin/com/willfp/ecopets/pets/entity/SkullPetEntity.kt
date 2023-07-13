@@ -5,6 +5,7 @@ import com.willfp.ecopets.pets.Pet
 import org.bukkit.Location
 import org.bukkit.entity.ArmorStand
 import org.bukkit.inventory.ItemStack
+import org.bukkit.Material
 
 class SkullPetEntity(pet: Pet) : PetEntity(pet) {
     override fun spawn(location: Location): ArmorStand {
