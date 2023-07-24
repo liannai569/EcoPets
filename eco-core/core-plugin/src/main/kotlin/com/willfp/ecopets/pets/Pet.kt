@@ -394,6 +394,7 @@ class Pet(
             .addLoreLines {
                 injectPlaceholdersInto(plugin.configYml.getStrings("gui.pet-info.active.lore"), player)
             }
+            .setCustomModelData(plugin.configYml.getInt("gui.pet-info.active.itemCmd"))
             .build()
     }
 
