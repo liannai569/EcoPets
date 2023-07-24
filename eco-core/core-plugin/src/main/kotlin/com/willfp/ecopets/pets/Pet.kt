@@ -44,6 +44,7 @@ class Pet(
 ) : Registrable {
     val name = config.getFormattedString("name")
     val description = config.getFormattedString("description")
+    val descriptionExp = config.getFormattedString("descriptionExp")
 
     val levelKey: PersistentDataKey<Int> = PersistentDataKey(
         EcoPetsPlugin.instance.namespacedKeyFactory.create("${id}_level"),
@@ -329,6 +330,7 @@ class Pet(
                     }
                     )
                     .replace("%description%", this.description)
+                    .replace("%descriptionExp%", this.descriptionExp)
                     .replace("%pet%", this.name)
                     .replace("%level%", (forceLevel ?: player.getPetLevel(this)).toString())
             }
