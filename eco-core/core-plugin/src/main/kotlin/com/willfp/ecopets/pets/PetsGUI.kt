@@ -50,6 +50,7 @@ object PetsGUI {
                 ?: ItemStackBuilder(Items.lookup(plugin.configYml.getString("gui.pet-info.no-active.item")))
                     .setDisplayName(plugin.configYml.getFormattedString("gui.pet-info.no-active.name"))
                     .addLoreLines(plugin.configYml.getFormattedStrings("gui.pet-info.no-active.lore"))
+                    .setCustomModelData(plugin.configYml.getInt("gui.pet-info.no-active.itemCmd"))
                     .build()
         }
 
@@ -207,6 +208,7 @@ object PetsGUI {
                 slot(
                     ItemStackBuilder(Items.lookup(plugin.configYml.getString("gui.deactivate-pet.item")))
                         .setDisplayName(plugin.configYml.getString("gui.deactivate-pet.name"))
+                        .setCustomModelData(plugin.configYml.getInt("gui.deactivate-pet.itemCmd"))
                         .build()
                 ) {
                     onLeftClick { event, _ ->
